@@ -5,7 +5,7 @@
 #            para gerenciar a comunicação em tempo real (mensagens de chat).
 # =====================================================================================
 from flask import Flask, render_template, request, redirect, url_for # estruturas para criar o site
-from flask_socketio import SocketIO, send, emit # estruturas para criar o chat
+from flask_socketio import SocketIO, emit # estruturas para criar o chat
 
 import random # para escolher cores aleatórias
 
@@ -13,8 +13,8 @@ import random # para escolher cores aleatórias
 # Cria o site e informa que a pasta de templates é o diretório atual ('.')
 # POR QUÊ? Por padrão, o Flask procura templates em uma pasta chamada 'templates'.
 #          Como nossos arquivos HTML estão no mesmo diretório que app.py,
-#          especificamos `template_folder='.'` para ajustar esse comportamento.
-app = Flask(__name__, template_folder='.')
+#          especificamos `template_folder='.'`. O mesmo se aplica a `static_folder='static'`.
+app = Flask(__name__, template_folder='.', static_folder='static')
 app.config["SECRET_KEY"] = "ajuiahfa78fh9f78shfs768fgs7f6" # chave de seguranca, pode ser qualquer coisa, mas escolha algo dificil
 
 # Inicializa o SocketIO, permitindo que o servidor se comunique em tempo real.
@@ -132,7 +132,9 @@ def gerenciar_mensagens(data):
         return # Ignora a mensagem se o usuário não for encontrado
     
     # Cria um ID único para a mensagem atual
-    message_id = f"{sid}_{random.randint(1000, 9999)}"
+    # Usar UUID é mais robusto para garantir IDs únicos.
+    import uuid
+    message_id = str(uuid.uuid4())
 
     payload = {"id": message_id, "text": mensagem_texto, "sid": sid, "username": user_info['username'], "color": user_info['color']}
     
