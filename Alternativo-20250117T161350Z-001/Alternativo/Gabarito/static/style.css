@@ -191,3 +191,27 @@ body {
     padding: 0 20px 10px;
     height: 1.2em;
 }
+
+/* Estilos para o Rodapé */
+.app-footer {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 0.8em;
+    color: #888;
+}
+
+.app-footer p {
+    margin: 2px 0;
+}
+
+.app-footer a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+.app-footer a:hover {
+    text-decoration: underline;
+}

@@ -105,3 +105,8 @@ Abra seu navegador e acesse `http://localhost:5000` ou `http://127.0.0.1:5000`.
 
 > **⚠️ Problemas de Conexão?**
 > Se você não conseguir se conectar a partir de outro dispositivo, o problema é quase sempre o **Firewall** do seu computador (Windows Defender ou de um antivírus). Ele pode estar bloqueando conexões na porta `5000`. Você precisa criar uma **regra de entrada** para permitir conexões TCP na porta 5000.
+
+<footer class="app-footer">
+    <p>© 2025 DuduTri. Todos os direitos reservados.</p>
+    <p>Contato: <a href="mailto:est.teodoro@gmail.com">est.teodoro@gmail.com</a></p>
+</footer>
