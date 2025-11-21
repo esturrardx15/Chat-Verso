@@ -1,5 +1,5 @@
 # =====================================================================================
-# Copyright 2024 Estevão Teodoro
+# Copyright 2025 DuduTri
 # Contato: est.teodoro@gmail.com
 # Todos os direitos reservados.
 # FUNÇÃO: Lançador de login para uso em rede local.
@@ -62,8 +62,9 @@ def main(pagina):
     
     def entrar_chat(evento):
         # COMO FUNCIONA: Esta função é chamada quando o usuário clica em "Acessar Chat".
-        if caixa_nome.value.strip():
-            username = caixa_nome.value.strip()
+        # A verificação `if caixa_nome.value and caixa_nome.value.strip()` garante que o valor não é None nem uma string vazia/com espaços.
+        if caixa_nome.value and caixa_nome.value.strip():
+            username = caixa_nome.value.strip() # Pega o valor já validado e remove espaços.
             # POR QUÊ `urllib.parse.quote`? Garante que caracteres especiais no nome de
             # usuário (como espaços) sejam formatados corretamente para uso em uma URL.
             encoded_username = urllib.parse.quote(username)
